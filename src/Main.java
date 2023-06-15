@@ -1,10 +1,35 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        example2();
+        example3();
+    }
+
+    static void example3() {
+        Document doc1 = new Document(1, "Документ 1");
+        Document doc2 = new Document(2, "Документ 2");
+        Document doc3 = new Document(3, "Документ 3");
+
+        NavigableSet<Document> set = new TreeSet<>();
+        set.add(doc1);
+        set.add(doc3);
+        set.add(doc2);
+
+        Document firstDoc = set.first();
+        Document lastDoc = set.last();
+
+        System.out.println(firstDoc);
+        System.out.println(lastDoc);
+
+        Iterator<Document> it = set.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+        Iterator<Document> descIt = set.descendingIterator();
+        while (descIt.hasNext()) {
+            System.out.println(descIt.next());
+        }
     }
 
     static void example2() {

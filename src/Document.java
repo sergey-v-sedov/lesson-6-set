@@ -1,7 +1,7 @@
 import java.util.Objects;
 import java.util.Random;
 
-public class Document {
+public class Document implements Comparable<Document> {
     int number;
     String title;
 
@@ -30,5 +30,15 @@ public class Document {
                 "number=" + number +
                 ", title='" + title + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Document doc) {
+        if(this.number < doc.number) return 1;
+        if(this.number > doc.number) return -1;
+        if(this.number == doc.number) return 0;
+
+        return 0;
     }
 }
